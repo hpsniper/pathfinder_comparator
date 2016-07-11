@@ -5,6 +5,10 @@ class ClassesBuilder {
     private $built = false;
 
     private $classes = array (
+        /* 
+         * Core Classes 
+         */
+
         // Fighter
         'Fighter' => array (            // 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20
             'hp'  =>                array ( 5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100),
@@ -52,6 +56,10 @@ class ClassesBuilder {
                 'master strike' => 'Choose one of 3 on sneak attack: put to sleep for 1d4 hours; paralyze for 2d6 rounds; slain; DC = 20+int modifier'
             )
         ),
+        /* 
+         * Base Classes 
+         */
+
         // Inquisitor TODO Finish
         'Inquisitor' => array (         // 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20
             'hp'  =>                array ( 4, 8,12,16,20,24,28,32,36,40,44,48,52,56,60,64,68,72,76,80),
@@ -89,6 +97,7 @@ class ClassesBuilder {
             'true judgment' =>      array ( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
             'glossary' => array (
                 'domain' => 'Select 1 domain belonging to choosen deity. Can select an alignment domain if she matches that alignment. The inquisitor gains bonus abilities but not spells or spell slots from the domain using Inqusitor level as effective cleric level. Levels of Cleric and Inquisitor stack for the puproses of abilities but not spells. (An inquisition can be selected instead of a domain)',
+                'cantrips' => '0-level spells known. These spells are cast like any other spell, but they do not consume any slots and may be used again.',
                 '' => '',
                 '' => '',
                 '' => '',
@@ -97,7 +106,37 @@ class ClassesBuilder {
                 '' => '',
                 '' => '',
             )
-        )
+        ),
+        /* 
+         * Hybrid Classes 
+         */
+
+        // Skald
+        'Skald' => array (                  // 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20
+            'hp'  =>                    array ( 4, 8,12,16,20,24,28,32,36,40,44,48,52,56,60,64,68,72,76,80),
+            'bab'  =>                   array ( 0, 1, 2, 3, 3, 4, 5, 6, 6, 7, 8, 9, 9,10,11,12,12,13,14,15),
+            'fort' =>                   array ( 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9,10,10,11,11,12),
+            'ref'  =>                   array ( 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6),
+            'will' =>                   array ( 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9,10,10,11,11,12),
+            'bardic knowledge' =>       array ( 1, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9,10),
+            'cantrips' =>               array ( 4, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6),
+            'inspired rage' =>          array ( 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6),
+            'raging song' =>            array ( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+            'scribe scroll' =>          array ( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+            'versitile performance' =>  array ( 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4),
+            'well versed' =>            array ( 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+            'rage power' =>             array ( 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6),
+            'glossary' => array (
+                'bardic knowledge' => 'Add 1/2 class level (min 1) on all Knowledge skill checks, and may make all Knowledge skill checks untrained.',
+                'cantrips' => '0-level spells known. These spells are cast like any other spell, but they do not consume any slots and may be used again.',
+                'inspired rage' => '<a href="http://www.d20pfsrd.com/classes/hybrid-classes/skald#TOC-Raging-Song-Su-">Inspired Rage</a>',
+                'raging song' => '<a href="http://www.d20pfsrd.com/classes/hybrid-classes/skald#TOC-Raging-Song-Su-">Raging Song</a>',
+                'scribe scroll' => 'Create a scroll of any spell that you know. It takes 2 hours if its base price is 250 gp or less, otherwise it takes 1 day for each 1,000 gp in its base price. Must use up raw materials costing half of the spell\'s base price.',
+                'versitile performance' => 'Choose one type of Perform skill and use the bonus in that skill in place of the bonus in the associated skills listed below. At 7th level, and every 5 levels thereafter, the bard can select an additional type of Perform to substitute.<br>Oratory (Diplomacy, Sense Motive), Percussion (Handle Animal, Intimidate), Sing (Bluff, Sense Motive), String (Bluff, Diplomacy), and Wind (Diplomacy, Handle Animal).',
+                'well versed' => 'Gain a +4 bonus on saves made vs bardic performance, and all sonic or language-dependent effects.',
+                'rage power' => 'Look it up'
+            )
+        ),
     );
 
     private $archetypes = array (

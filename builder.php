@@ -104,15 +104,17 @@ class CharacterBuilder {
 }
 
 $cBuilder = new CharacterBuilder();
-$a = array('Fighter: Tower Shield Specialist' => 9, 'Rogue' => 11);
-$b = array('Fighter: Tower Shield Specialist' => 20);
-$c = array('Fighter' => 7, 'Rogue' => 13);
-$d = array('Inquisitor' => 13, 'Rogue' => 7);
-$e = array('Inquisitor' => 12, 'Rogue' => 8);
+$a = array('Fighter' => 2, 'Skald' => 15);
+$b = array('Fighter' => 1, 'Skald' => 16);
+$c = array('Skald' => 17);
+//$b = array('Fighter: Tower Shield Specialist' => 20);
+//$c = array('Fighter' => 7, 'Rogue' => 13);
+//$d = array('Inquisitor' => 13, 'Rogue' => 7);
+//$e = array('Inquisitor' => 12, 'Rogue' => 8);
 //$cBuilder->print_character($a);
 //echo "\n";
 //$cBuilder->print_character($b);
 //echo "\n";
 $fh = fopen('www/compare.html', 'w+');
-fwrite($fh, $cBuilder->compare_characters(array($c, $d, $e)));
+fwrite($fh, $cBuilder->compare_characters(array($a, $b, $c)));
 fclose($fh);
